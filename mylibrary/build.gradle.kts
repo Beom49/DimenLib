@@ -43,4 +43,17 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.Beom49"
+                artifactId = "mylibrary"
+                version = "1.0.0"
+
+                afterEvaluate {
+                    from(components["release"])
+                }
+            }
+        }
+    }
 }
